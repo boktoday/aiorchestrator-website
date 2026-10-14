@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brendan O'Keefe | AI Orchestrator | Human-AI Collaboration Expert</title>
+<meta name="description" content="Australian expert AI orchestrator specialising in human-AI collaboration, voice AI solutions, and innovative AI implementations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Palette: same colour scheme as the live site — warm white, ink 1a120f,
+     soft pink 340deg, lavender 270deg, warm beige borders. Squared edges. */
+  :root {
+    --bg:#fbf9f8; --ink:#1a120f; --ink-soft:rgba(26,18,15,0.7); --ink-faint:rgba(26,18,15,0.5);
+    --pink:#e8bcc9; --lavender:#cec3de; --beige:#e9e2dd; --line:#d6c9bf; --card:#ffffff;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font-family:"Inter",system-ui,sans-serif; line-height:1.65; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 32px; }
+  a { color:inherit; }
+  h1,h2,h3,.display { font-family:"Sora",sans-serif; }
+  header { position:sticky; top:0; z-index:20; background:rgba(251,249,248,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:15px 0; flex-wrap:wrap; }
+  .wordmark { font-family:"Sora",sans-serif; font-weight:700; font-size:1.02rem; letter-spacing:0.04em; text-decoration:none; }
+  .wordmark b { color:#b06a86; }
+  nav.links { display:flex; gap:26px; }
+  nav.links a { text-decoration:none; font-size:0.85rem; font-weight:500; color:var(--ink-soft); }
+  nav.links a:hover { color:var(--ink); }
+  .btn { display:inline-block; padding:14px 26px; font:inherit; font-weight:600; font-size:0.9rem; text-decoration:none; background:var(--ink); color:#fff; border:1px solid var(--ink); }
+  .btn:hover { background:#3a2a24; }
+  .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--ink); }
+  .btn.ghost:hover { background:var(--ink); color:#fff; }
+  .btn.small { padding:10px 18px; font-size:0.82rem; }
+
+  .hero { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero::before { content:""; position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(232,188,201,0.5), rgba(206,195,222,0.42) 55%, rgba(251,249,248,0));
+    -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); }
+  .hero .in { position:relative; padding:104px 0 88px; }
+  .kicker { font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#8a5a70; margin-bottom:24px; }
+  h1 { font-weight:700; font-size:clamp(2.7rem,6.4vw,5.4rem); line-height:1.02; letter-spacing:-0.02em; max-width:15ch; }
+  h1 .grad { background:linear-gradient(120deg,#b06a86,#8d7fb8); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lede { margin:28px 0 34px; max-width:58ch; font-size:1.08rem; color:var(--ink-soft); }
+  .cta-row { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+  .instruments { display:flex; gap:10px; flex-wrap:wrap; margin-top:40px; }
+  .inst { border:1px solid var(--line); background:rgba(255,255,255,0.75); padding:10px 16px; font-size:0.82rem; font-weight:500; text-decoration:none; color:var(--ink-soft); }
+  .inst:hover { border-color:var(--ink); color:var(--ink); }
+
+  section { padding:92px 0; border-bottom:1px solid var(--line); }
+  section.alt { background:linear-gradient(180deg, rgba(233,226,221,0.45), rgba(251,249,248,0)); }
+  h2 { font-weight:600; font-size:clamp(1.7rem,3.4vw,2.5rem); letter-spacing:-0.015em; }
+  .sub { color:var(--ink-faint); max-width:62ch; margin-top:12px; }
+
+  .cards4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr)); gap:0; margin-top:46px; border-top:1px solid var(--line); }
+  .c4 { padding:30px 26px 34px 0; border-bottom:1px solid var(--line); }
+  .c4 + .c4 { padding-left:26px; border-left:1px solid var(--line); }
+  .c4 .idx { font-family:"Sora",sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.16em; color:#b06a86; }
+  .c4 h3 { font-weight:600; font-size:1.12rem; margin:14px 0 8px; }
+  .c4 p { font-size:0.94rem; color:var(--ink-soft); }
+
+  .banner { margin:42px 0 0; background:linear-gradient(135deg, rgba(232,188,201,0.55), rgba(206,195,222,0.45)); border:1px solid var(--line); padding:22px 28px; display:flex; gap:18px; align-items:baseline; flex-wrap:wrap; }
+  .banner .tag { font-size:0.74rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8a5a70; }
+  .banner strong { font-family:"Sora",sans-serif; font-weight:600; }
+
+  .work { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr)); gap:22px; margin-top:46px; }
+  .wcard { background:var(--card); border:1px solid var(--line); padding:28px 26px 26px; display:flex; flex-direction:column; gap:12px; transition:transform .15s ease, box-shadow .15s ease; }
+  .wcard:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(26,18,15,0.08); }
+  .wcard .kind { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8a5a70; }
+  .wcard h3 { font-weight:600; font-size:1.15rem; }
+  .wcard p { font-size:0.92rem; color:var(--ink-soft); flex:1; }
+  .wcard a { font-size:0.86rem; font-weight:600; text-decoration:none; border-bottom:2px solid var(--pink); align-self:flex-start; }
+  .wcard a:hover { border-color:var(--ink); }
+
+  .spec { margin-top:42px; border-top:1px solid var(--line); }
+  .spec .row { display:flex; gap:22px; align-items:baseline; padding:16px 0; border-bottom:1px solid var(--line); }
+  .spec .i { font-family:"Sora",sans-serif; font-size:0.76rem; font-weight:600; color:#8a5a70; min-width:36px; }
+  .spec .t { font-size:1rem; }
+
+  .quotes { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:44px; }
+  .q { background:var(--card); border:1px solid var(--line); padding:34px 32px; }
+  .q blockquote { font-size:1.02rem; line-height:1.7; color:#2c211b; }
+  .q .who { margin-top:20px; font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8a5a70; }
+
+  .price4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:22px; margin-top:46px; }
+  .p { background:var(--card); border:1px solid var(--line); padding:30px 28px 34px; }
+  .p .amt { font-family:"Sora",sans-serif; font-weight:700; font-size:2.4rem; letter-spacing:-0.02em; }
+  .p .per { font-size:0.74rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin-top:4px; }
+  .p h3 { font-weight:600; font-size:1rem; margin-top:16px; }
+  .p.hot { background:linear-gradient(135deg, rgba(232,188,201,0.5), rgba(206,195,222,0.4)); }
+
+  .course3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px; }
+  .cc { border:1px solid var(--line); padding:30px 26px; background:var(--card); }
+  .cc .st { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8a5a70; }
+  .cc h3 { font-weight:600; font-size:1.18rem; margin-top:12px; }
+
+  .connect { background:linear-gradient(135deg, rgba(232,188,201,0.35), rgba(206,195,222,0.35)); border-bottom:0; }
+  .connect .big { font-family:"Sora",sans-serif; font-weight:600; font-size:clamp(1.9rem,4vw,3.1rem); letter-spacing:-0.02em; margin-top:16px; max-width:20ch; }
+  .connect .row { display:flex; gap:26px; flex-wrap:wrap; align-items:center; margin-top:34px; }
+  .connect a.plain { text-decoration:none; font-weight:600; border-bottom:2px solid rgba(26,18,15,0.35); }
+  .socials { display:flex; gap:24px; flex-wrap:wrap; margin-top:40px; }
+  .socials a { font-size:0.85rem; font-weight:600; color:var(--ink-soft); text-decoration:none; }
+  .socials a:hover { color:var(--ink); }
+  footer { padding:36px 0 46px; }
+  footer .fine { font-size:0.8rem; color:var(--ink-faint); }
+  @media (max-width:980px) {
+    nav.links { display:none; }
+    .c4 + .c4 { padding-left:0; border-left:0; }
+    .quotes { grid-template-columns:1fr; }
+    .course3 { grid-template-columns:1fr; }
+  }
+  @media (max-width:560px) { .wrap { padding:0 20px; } section { padding:64px 0; } .hero .in { padding:76px 0 64px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top">BRENDAN O'KEEFE <b>· AI ORCHESTRATOR</b></a>
+    <nav class="links">
+      <a href="#opportunities">Opportunities</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#course">Course</a>
+      <a href="#connect">Connect</a>
+    </nav>
+    <a class="btn small" href="https://tidycal.com/insightguy/60-minute-consultation" target="_blank" rel="noopener">Book a consultation</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap in">
+    <div class="kicker">Brendan O'Keefe, AI Orchestrator</div>
+    <h1>A force for <span class="grad">AI-human collaboration.</span></h1>
+    <p class="lede">In a world of specialised AI tools, the orchestrator is the conductor, harmonising individual instruments to create a powerful symphony of intelligent automation.</p>
+    <div class="cta-row">
+      <a class="btn" href="#work">View my work</a>
+      <a class="btn ghost" href="https://tidycal.com/insightguy/60-minute-consultation" target="_blank" rel="noopener">Book a consultation</a>
+    </div>
+    <div class="instruments">
+      <a class="inst" href="#connect">Chat with AI Assistant</a>
+      <a class="inst" href="#connect">Voice Assistant</a>
+      <a class="inst" href="#connect">Generate Robot Orchestra</a>
+    </div>
+  </div>
+</section>
+
+<section id="opportunities">
+  <div class="wrap">
+    <h2>The opportunities</h2>
+    <p class="sub">Harness a symphony of AI tools to transform your business and unlock new potential.</p>
+    <div class="cards4">
+      <div class="c4"><div class="idx">01</div><h3>Unlock new revenue</h3><p>Create innovative products and services powered by a symphony of AI tools.</p></div>
+      <div class="c4"><div class="idx">02</div><h3>Hyper-personalisation</h3><p>Deliver unique customer experiences by orchestrating data and AI-driven insights.</p></div>
+      <div class="c4"><div class="idx">03</div><h3>Competitive advantage</h3><p>Implement local, open-source, offline and privacy-first AI solutions for maximum control.</p></div>
+      <div class="c4"><div class="idx">04</div><h3>Drive innovation</h3><p>Combine the strengths of multiple AI models to solve problems previously thought impossible.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="services">
+  <div class="wrap">
+    <h2>How I can help</h2>
+    <p class="sub">From strategic coaching to hands-on development, I provide tailored AI solutions.</p>
+    <div class="banner"><span class="tag">Brendan's story · Local</span><strong>Local businesses in Casey Municipality get 20% off</strong></div>
+    <div class="cards4">
+      <div class="c4"><h3>AI career advancement training</h3><p>Upskill and pivot into the AI-driven job market with personalised coaching.</p></div>
+      <div class="c4"><h3>AI in your local business</h3><p>Integrate AI to optimise operations, enhance customer service, and drive growth.</p></div>
+      <div class="c4"><h3>AI app and artifact development</h3><p>Learn to build and deploy your own AI-powered applications and interactive tools.</p></div>
+      <div class="c4"><h3>AI on-premises</h3><p>Implement local, open-source, and privacy-first AI solutions for maximum control.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Recent work</h2>
+    <p class="sub">A few of the things I have been building lately — free, open, and in the wild.</p>
+    <div class="work">
+      <div class="wcard">
+        <div class="kind">Free agent products</div>
+        <h3>NeuroDivergeAgent</h3>
+        <p>Two free AI agents for neurodivergent lives: a Family Agent for families raising neurodiverse children, and an Individual Agent for neurodivergent adults. Private by design, built on Hermes.</p>
+        <a href="https://neurodivergeagent.com" target="_blank" rel="noopener">neurodivergeagent.com</a>
+      </div>
+      <div class="wcard">
+        <div class="kind">Framework</div>
+        <h3>Ten Commandments for AI Agents</h3>
+        <p>A governing code for AI agents, reasoned from two debts — the debt of truth and the debt of the mandate. Plain, classical and builder's forms, adopted into every agent I ship.</p>
+        <a href="https://github.com/boktoday/ten-commandments-for-ai-agents" target="_blank" rel="noopener">github.com/boktoday/ten-commandments-for-ai-agents</a>
+      </div>
+      <div class="wcard">
+        <div class="kind">Agent edition</div>
+        <h3>Build with Jesus Agent</h3>
+        <p>A Bible-centred agent for young people and churches: morning prayer, night passages, the Eight Essentials, and a build coach that takes a project from idea to give-away.</p>
+        <a href="https://buildwithjesus.com" target="_blank" rel="noopener">buildwithjesus.com</a>
+      </div>
+      <div class="wcard">
+        <div class="kind">Guide + agents</div>
+        <h3>One to Eight</h3>
+        <p>The guide for young people of the screen-born generation, in ten languages, plus free Hermes agent editions for schools, churches and families.</p>
+        <a href="https://www.onetoeight.guide/en/u/" target="_blank" rel="noopener">onetoeight.guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Specialisations</h2>
+    <div class="spec">
+      <div class="row"><span class="i">01</span><span class="t">Neuroinclusion tech and training — AI-powered tools and training for neurodivergent families and allied health providers</span></div>
+      <div class="row"><span class="i">02</span><span class="t">AI vibe coding training</span></div>
+      <div class="row"><span class="i">03</span><span class="t">Done-with-you AI integration</span></div>
+      <div class="row"><span class="i">04</span><span class="t">Private on-premises local LLM development</span></div>
+      <div class="row"><span class="i">05</span><span class="t">Change management for AI-human collaboration roles</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>What clients say</h2>
+    <p class="sub">Real experiences from professionals who have transformed their approach to AI.</p>
+    <div class="quotes">
+      <div class="q">
+        <blockquote>"Brendan showed me how to use AI as a tool to enhance my creativity, not replace it. His training is insightful, with lots of new AI options, breaking down complex concepts so that anyone can understand them. I now feel less stressed about the future."</blockquote>
+        <div class="who">Sophia M · Creative professional</div>
+      </div>
+      <div class="q">
+        <blockquote>"An AI coach and trainer with unparalleled expertise in generative AI, conversational AI and chatbot agents. His deep knowledge and ability to convey complex concepts empowered me to fully embrace the transformative power of AI — I launched my own business in this rapidly evolving field, feeling well-prepared and inspired."</blockquote>
+        <div class="who">Vik A · AI business entrepreneur</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="sub">Transparent pricing for professional AI services.</p>
+    <div class="price4">
+      <div class="p hot"><div class="amt">$125</div><div class="per">Per hour</div><h3>Online coaching</h3></div>
+      <div class="p"><div class="amt">$85</div><div class="per">Per hour</div><h3>Prompt design and quality control</h3></div>
+      <div class="p"><div class="amt">$695</div><div class="per">Per day</div><h3>Day rate</h3></div>
+      <div class="p"><div class="amt">$595</div><div class="per">Per day</div><h3>Custom builds</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="course">
+  <div class="wrap">
+    <h2>New courses coming</h2>
+    <div class="course3">
+      <div class="cc"><div class="st">Course 01</div><h3>AI Orchestrator for employees</h3></div>
+      <div class="cc"><div class="st">Course 02</div><h3>AI Orchestrator for students</h3></div>
+      <div class="cc"><div class="st">Course 03</div><h3>AI Orchestrator for parents</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="connect" id="connect">
+  <div class="wrap">
+    <h2>Let's connect</h2>
+    <div class="big">Ready to orchestrate your AI symphony?</div>
+    <div class="row">
+      <a class="btn" href="https://tidycal.com/insightguy/60-minute-consultation" target="_blank" rel="noopener">Book a consultation</a>
+      <a class="plain" href="mailto:brendan@employai.com.au">brendan@employai.com.au</a>
+      <a class="plain" href="tel:+61490393533">+61 490 393 533</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/brendanokeefe/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/aionthespectrum" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://medium.com/@insightguy" target="_blank" rel="noopener">Medium</a>
+      <a href="https://www.youtube.com/@distinctolife" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fine">© 2026 Employ AI Pty Ltd. ABN 21 672 202 612 — T/A AI Orchestrator. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
