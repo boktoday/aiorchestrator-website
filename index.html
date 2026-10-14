@@ -25,8 +25,8 @@
   .nav { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:15px; padding-bottom:15px; flex-wrap:wrap; }
   .wordmark { font-family:"Sora",sans-serif; font-weight:700; font-size:1.02rem; letter-spacing:0.04em; text-decoration:none; }
   .wordmark b { color:#b06a86; }
-  nav.links { display:flex; gap:22px; }
-  nav.links a { text-decoration:none; font-size:0.82rem; font-weight:500; color:var(--ink-soft); }
+  nav.links { display:flex; gap:16px; }
+  nav.links a { text-decoration:none; font-size:0.8rem; font-weight:500; color:var(--ink-soft); }
   .burger { display:none; background:none; border:1px solid var(--line); width:44px; height:44px; cursor:pointer; padding:0; align-items:center; justify-content:center; flex-direction:column; gap:5px; }
   .burger span { display:block; width:20px; height:2px; background:var(--ink); transition:transform .2s ease, opacity .2s ease; }
   .mobile-menu { display:none; background:#fff; border-bottom:1px solid var(--line); }
@@ -63,6 +63,13 @@
   h2 { font-weight:600; font-size:clamp(1.7rem,3.4vw,2.5rem); letter-spacing:-0.015em; }
   .sub { color:var(--ink-faint); max-width:62ch; margin-top:12px; }
 
+  .about-grid { display:grid; grid-template-columns:320px 1fr; gap:46px; align-items:start; }
+  .about-photo img { display:block; width:100%; height:auto; border:1px solid var(--line); }
+  .about-text p { margin:16px 0 0; color:var(--ink-soft); max-width:64ch; font-size:0.98rem; }
+  .about-grid .kicker { margin-bottom:14px; }
+  .facts { display:flex; gap:10px; flex-wrap:wrap; margin-top:26px; }
+  .fact { border:1px solid var(--line); background:rgba(255,255,255,0.75); padding:8px 14px; font-size:0.82rem; font-weight:500; color:var(--ink-soft); }
+  @media (max-width:900px) { .about-grid { grid-template-columns:1fr; gap:28px; } .about-photo { max-width:300px; } }
   .cards4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr)); gap:0; margin-top:46px; border-top:1px solid var(--line); }
   .c4 { padding:30px 26px 34px 0; border-bottom:1px solid var(--line); }
   .c4 + .c4 { padding-left:26px; border-left:1px solid var(--line); }
@@ -115,7 +122,7 @@
   .socials a:hover { color:var(--ink); }
   footer { padding:36px 0 46px; }
   footer .fine { font-size:0.8rem; color:var(--ink-faint); }
-  @media (max-width:1060px) {
+  @media (max-width:1279px) {
     nav.links, .nav-book { display:none; }
     .burger { display:flex; flex:0 0 auto; }
     .nav { flex-wrap:nowrap; }
@@ -134,6 +141,8 @@
   <div class="wrap nav">
     <a class="wordmark" href="#top">BRENDAN O'KEEFE <b>· AI ORCHESTRATOR</b></a>
     <nav class="links">
+      <a href="#about">About</a>
+      <a href="#about">About</a>
       <a href="#opportunities">Opportunities</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -146,6 +155,7 @@
   </div>
   <div class="mobile-menu" id="menu">
     <div class="wrap">
+      <a href="#about">About</a>
       <a href="#opportunities">Opportunities</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -168,6 +178,28 @@
     </div>
     <div class="instruments">
       <a class="inst" href="#connect">Generate Robot Orchestra</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo"><img src="assets/brendan.jpg" alt="Brendan O'Keefe, AI Orchestrator" width="640" height="800" loading="lazy"></div>
+      <div class="about-text">
+        <div class="kicker">About</div>
+        <h2>The job I've always done.</h2>
+        <p>I'm Brendan O'Keefe, and AI is the latest in a long line of technological waves I've worked through. In the mid-eighties I was a teenager with a keyboard, a synth and a computer, sequencing music I never learned to play formally. By 1989 I had a record contract and singles out in Australia. The lesson was never the singing. It was the automation.</p>
+        <p>Then the internet arrived and I was one of the first in Melbourne building websites. I built for a Sydney 3D startup, ran my own web business making WordPress and SMS tools for community organisations, worked as a youth worker, and spent ten years at Mental Health First Aid International helping take a global mission online as e-learning.</p>
+        <p>When ChatGPT landed it felt bigger than the internet moment. I started my own business, built six niche apps for parents of neurodiverse children mostly on free tiers (that is the orchestrator trick), and now I coach and build AI orchestration for local businesses, professionals and families.</p>
+        <p>The title is new. The job isn't. Thirty-five years of taking the newest tools of the day and arranging them into something useful, with human judgment in the loop. I build with this stuff every day, and I teach exactly what I use.</p>
+        <div class="facts">
+          <span class="fact">35+ years adapting to new technology</span>
+          <span class="fact">Six apps built for neurodiverse families</span>
+          <span class="fact">Melbourne, Australia</span>
+          <span class="fact">Human in the loop, always</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
