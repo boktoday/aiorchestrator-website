@@ -134,6 +134,27 @@
     .course3 { grid-template-columns:1fr; }
   }
   @media (max-width:560px) { .wrap { padding-left:20px; padding-right:20px; } section { padding:64px 0; } .hero .in { padding-top:76px; padding-bottom:64px; } .wordmark { font-size:0.78rem; letter-spacing:0.02em; } }
+
+  button.inst { font-family:inherit; font-size:0.82rem; cursor:pointer; }
+  .orch { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .orch[hidden] { display:none; }
+  .orch-back { position:absolute; inset:0; background:rgba(26,18,15,0.55); }
+  .orch-panel { position:relative; background:#fbf9f6; border:1px solid var(--line); width:100%; max-width:720px; max-height:92vh; overflow:auto; padding:30px 30px 24px; text-align:center; }
+  .orch-x { position:absolute; top:8px; right:14px; background:none; border:0; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--ink-soft); }
+  .orch-x:hover { color:var(--ink); }
+  .orch-t { font-size:clamp(1.4rem,3vw,1.9rem); margin:6px 0 10px; }
+  .orch-sub { color:var(--ink-soft); font-size:0.95rem; max-width:52ch; margin:0 auto 20px; }
+  .orch-stage { border:1px solid var(--line); background:#fff; aspect-ratio:16/9; position:relative; overflow:hidden; }
+  .orch-stage img { width:100%; height:100%; object-fit:cover; display:block; }
+  .orch-shuffle { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:14px; background:linear-gradient(120deg, rgba(233,184,200,0.28), rgba(185,169,230,0.28)); }
+  .orch-shuffle[hidden] { display:none; }
+  .orch-shuffle span { width:14px; height:14px; background:var(--ink); animation:orchb 0.9s infinite ease-in-out; }
+  .orch-shuffle span:nth-child(2) { animation-delay:0.15s; }
+  .orch-shuffle span:nth-child(3) { animation-delay:0.3s; }
+  @keyframes orchb { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+  .orch-cap { margin:12px 0 16px; font-size:0.95rem; color:var(--ink); min-height:1.4em; }
+  .orch-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .orch-note { margin-top:16px; font-size:0.75rem; color:var(--ink-soft); opacity:0.85; }
 </style>
 </head>
 <body>
@@ -141,7 +162,6 @@
   <div class="wrap nav">
     <a class="wordmark" href="#top">BRENDAN O'KEEFE <b>· AI ORCHESTRATOR</b></a>
     <nav class="links">
-      <a href="#about">About</a>
       <a href="#about">About</a>
       <a href="#opportunities">Opportunities</a>
       <a href="#services">Services</a>
@@ -177,7 +197,7 @@
       <a class="btn ghost" href="https://tidycal.com/insightguy/60-minute-consultation" target="_blank" rel="noopener">Book a consultation</a>
     </div>
     <div class="instruments">
-      <a class="inst" href="#connect">Generate Robot Orchestra</a>
+      <button class="inst" id="orch-open" type="button">Generate Robot Orchestra</button>
     </div>
   </div>
 </section>
@@ -359,6 +379,26 @@
   </div>
 </section>
 
+<div class="orch" id="orch" hidden>
+  <div class="orch-back" data-orch-close></div>
+  <div class="orch-panel" role="dialog" aria-modal="true" aria-label="Robot Orchestra generator">
+    <button class="orch-x" id="orch-close" aria-label="Close">&times;</button>
+    <div class="kicker">A small delight</div>
+    <h3 class="orch-t">The Robot Orchestra</h3>
+    <p class="orch-sub">Every press summons a different ensemble from the orchestra pit: a conductor, a string section, and one robot who is always slightly out of time.</p>
+    <div class="orch-stage" id="orch-stage">
+      <div class="orch-shuffle" id="orch-shuffle"><span></span><span></span><span></span></div>
+      <img id="orch-img" alt="Generated robot orchestra" hidden>
+    </div>
+    <div class="orch-cap" id="orch-cap"></div>
+    <div class="orch-row">
+      <button class="btn" id="orch-go" type="button">Generate Robot Orchestra</button>
+      <button class="btn ghost" id="orch-dl" type="button" disabled>Download</button>
+    </div>
+    <div class="orch-note">Ten original ensembles, drawn at random. Artwork generated with Nano Banana 2.</div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="fine">© 2026 The AI Champion. ABN: 60 118 175 136. T/A AI Orchestrator. All rights reserved.</div>
@@ -375,6 +415,67 @@
     a.addEventListener('click', function(){
       document.body.classList.remove('menu-open');
       b.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var ORCH_NAMES = {
+    1:'The Circuit Philharmonic', 2:'The Garden Orchestra', 3:'The Rooftop Sinfonia',
+    4:'The Full Voltage Orchestra', 5:'Key & Spark', 6:'The Midnight Trio',
+    7:'The Marching Circuits', 8:'The Rehearsal Room', 9:'The Grand Hall Ensemble', 10:'The Curtain Call'
+  };
+  var N = 10;
+  var overlay = document.getElementById('orch');
+  var img = document.getElementById('orch-img');
+  var cap = document.getElementById('orch-cap');
+  var dl = document.getElementById('orch-dl');
+  var shuffle = document.getElementById('orch-shuffle');
+  var trigger = document.getElementById('orch-open');
+  var current = 0, last = 0, busy = false, preloaded = false;
+
+  function show(){ overlay.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('orch-close').focus(); }
+  function hide(){ overlay.hidden = true; document.body.style.overflow = ''; trigger.focus(); }
+  function preload(){ if(preloaded) return; preloaded = true; for(var i=1;i<=N;i++){ var im = new Image(); im.src = srcFor(i); } }
+  function srcFor(n){ return 'assets/robot-orchestra/robot-orchestra-' + (n<10?'0'+n:''+n) + '.jpg'; }
+
+  function gen(){
+    if(busy) return; busy = true;
+    dl.disabled = true; img.hidden = true; shuffle.hidden = false;
+    var ticks = 0;
+    var t = setInterval(function(){
+      ticks++;
+      cap.textContent = ORCH_NAMES[1 + Math.floor(Math.random()*N)];
+      if(ticks >= 9){
+        clearInterval(t);
+        current = 1 + Math.floor(Math.random()*N);
+        if(current === last) current = (current % N) + 1;
+        last = current;
+        img.src = srcFor(current);
+        img.onload = function(){
+          shuffle.hidden = true; img.hidden = false;
+          cap.textContent = ORCH_NAMES[current] + ' \u00b7 No. ' + current + ' of ' + N;
+          dl.disabled = false; busy = false;
+          preload();
+        };
+      }
+    }, 110);
+  }
+
+  trigger.addEventListener('click', function(){ show(); if(!current) gen(); else preload(); });
+  document.getElementById('orch-go').addEventListener('click', gen);
+  document.getElementById('orch-close').addEventListener('click', hide);
+  overlay.querySelector('[data-orch-close]').addEventListener('click', hide);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !overlay.hidden) hide(); });
+
+  dl.addEventListener('click', function(){
+    if(!current) return;
+    fetch(img.src).then(function(r){ return r.blob(); }).then(function(b){
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'robot-orchestra-' + current + '.jpg';
+      document.body.appendChild(a); a.click(); a.remove();
     });
   });
 })();
