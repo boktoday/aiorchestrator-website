@@ -83,7 +83,7 @@
   .banner strong { font-family:"Sora",sans-serif; font-weight:600; }
 
   .work { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr)); gap:22px; margin-top:46px; }
-  .wcard { background:var(--card); border:1px solid var(--line); padding:28px 26px 26px; display:flex; flex-direction:column; gap:12px; transition:transform .15s ease, box-shadow .15s ease; }
+  .wcard { position:relative; background:var(--card); border:1px solid var(--line); padding:28px 26px 26px; display:flex; flex-direction:column; gap:12px; transition:transform .15s ease, box-shadow .15s ease; }
   .wcard:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(26,18,15,0.08); }
   .wcard .thumb { display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; border:1px solid var(--line); margin-bottom:16px; }
   .wcard .kind { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8a5a70; }
@@ -311,6 +311,15 @@
         <img class="thumb" src="assets/work/epilogue.jpg?v=2" alt="Epilogue Life homepage" loading="lazy" width="640" height="400">
         <span class="freebadge">Free</span>
         <div class="kind">Free agent</div>
+      <div class="wcard">
+        <img class="thumb" src="assets/work/iepagent.jpg" alt="IEP Agent homepage" loading="lazy" width="640" height="400">
+        <span class="freebadge">Free</span>
+        <div class="kind">Free agent</div>
+        <h3>IEP Agent</h3>
+        <p>A planning agent for families raising a child with additional needs: paste in the plan and it comes back organised, keep the notes, prep the next meeting, and print the one-pager that goes to school with you. Sparks, badges and gentle check-ins included.</p>
+        <a href="https://iepagent.com/" target="_blank" rel="noopener">iepagent.com</a>
+      </div>
+
         <h3>Epilogue Life</h3>
         <p>A free, open planning companion for your third age: 35 guided questions, a gentle daily rhythm, and a complete plan your family will thank you for.</p>
         <a href="https://epilogue.life" target="_blank" rel="noopener">epilogue.life</a>
