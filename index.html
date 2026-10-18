@@ -45,11 +45,11 @@
   .btn.ghost:hover { background:var(--ink); color:#fff; }
   .btn.small { padding:10px 18px; font-size:0.82rem; }
 
-  .hero { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero { position:relative; overflow:hidden; border-bottom:1px solid var(--line); } section.hero { padding:0; }
   .hero::before { content:""; position:absolute; inset:0;
     background:linear-gradient(135deg, rgba(232,188,201,0.5), rgba(206,195,222,0.42) 55%, rgba(251,249,248,0));
     -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); }
-  .hero .in { position:relative; padding-top:104px; padding-bottom:88px; }
+  .hero .in { position:relative; padding-top:46px; padding-bottom:88px; }
   .kicker { font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#8a5a70; margin-bottom:24px; }
   h1 { font-weight:700; font-size:clamp(2.7rem,6.4vw,5.4rem); line-height:1.02; letter-spacing:-0.02em; max-width:15ch; }
   h1 .grad { background:linear-gradient(120deg,#b06a86,#8d7fb8); -webkit-background-clip:text; background-clip:text; color:transparent; white-space:nowrap; }
@@ -126,7 +126,7 @@
   @media (max-width:1279px) {
     nav.links, .nav-book { display:none; }
     .burger { display:flex; flex:0 0 auto; }
-    .nav { flex-wrap:nowrap; }
+    .nav { flex-wrap:nowrap; justify-content:flex-end; }
     .wordmark { flex:1 1 auto; min-width:0; }
   }
   @media (max-width:980px) {
@@ -134,7 +134,7 @@
     .quotes { grid-template-columns:1fr; }
     .course3 { grid-template-columns:1fr; }
   }
-  @media (max-width:560px) { .wrap { padding-left:20px; padding-right:20px; } section { padding:64px 0; } .hero .in { padding-top:76px; padding-bottom:64px; } .wordmark { font-size:0.78rem; letter-spacing:0.02em; } }
+  @media (max-width:560px) { .wrap { padding-left:20px; padding-right:20px; } section { padding:64px 0; } section.hero { padding:0; } .hero .in { padding-top:36px; padding-bottom:56px; } .wordmark { font-size:0.78rem; letter-spacing:0.02em; } }
 
   button.inst { font-family:inherit; font-size:0.82rem; cursor:pointer; }
   .orch { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:20px; }
@@ -164,7 +164,6 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="#top">BRENDAN O'KEEFE <b>· AI ORCHESTRATOR</b></a>
     <nav class="links">
       <a href="#about">About</a>
       <a href="#opportunities">Opportunities</a>
@@ -193,7 +192,7 @@
 
 <section class="hero" id="top">
   <div class="wrap in">
-    <div class="kicker">Brendan O'Keefe, AI Orchestrator</div>
+    
     <h1>A force for <span class="grad">AI-human</span> <span class="grad">collaboration.</span></h1>
     <p class="lede">In a world of specialised AI tools, the orchestrator is the conductor, harmonising individual instruments to create a powerful symphony of intelligent automation.</p>
     <div class="cta-row">
