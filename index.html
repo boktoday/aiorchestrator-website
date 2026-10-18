@@ -200,9 +200,6 @@
       <a class="btn" href="#work">View my work</a>
       <a class="btn ghost" href="https://tidycal.com/insightguy/60-minute-consultation" target="_blank" rel="noopener">Book a consultation</a>
     </div>
-    <div class="instruments">
-      <button class="inst" id="orch-open" type="button">Generate Robot Orchestra</button>
-    </div>
   </div>
 </section>
 
@@ -473,6 +470,7 @@
   var dl = document.getElementById('orch-dl');
   var shuffle = document.getElementById('orch-shuffle');
   var trigger = document.getElementById('orch-open');
+  if (!trigger) { trigger = { focus: function(){}, addEventListener: function(){} }; }
   var current = 0, last = 0, busy = false, preloaded = false;
 
   function show(){ overlay.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('orch-close').focus(); }
