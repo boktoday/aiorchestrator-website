@@ -162,6 +162,15 @@
 .nav-mark { display:flex; align-items:center; flex:0 0 auto; margin-right:auto; color:var(--ink); }
 .nav-mark svg { width:56px; height:31px; display:block; }
 .nav-mark:hover svg { opacity:.75; }
+
+/* featured work: one project spans the full grid above the regular cards */
+.wfeature { grid-column:1 / -1; position:relative; background:var(--card); border:1px solid var(--line); padding:28px 26px 26px; display:flex; flex-direction:column; gap:12px; transition:transform .15s ease, box-shadow .15s ease; }
+.wfeature:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(26,18,15,0.08); }
+.wfeature .thumb { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:cover; border:1px solid var(--line); margin-bottom:10px; }
+.wfeature h3 { font-weight:600; font-size:clamp(1.4rem,2.6vw,2rem); }
+.wfeature p { font-size:1rem; color:var(--ink-soft); max-width:68ch; }
+.wfeature a { font-size:0.95rem; }
+@media (max-width:700px) { .wfeature .thumb { aspect-ratio:16/10; } .wfeature h3 { font-size:1.4rem; } }
 </style>
 </head>
 <body>
@@ -269,14 +278,16 @@
     <h2>Recent work</h2>
     <p class="sub">A few of the things I have been building lately — free, open, and in the wild.</p>
     <div class="work">
-      <div class="wcard">
-        <img class="thumb" src="assets/work/buildwithjesus.jpg" alt="Build with Jesus homepage" loading="lazy" width="640" height="400">
+      <div class="wfeature">
+        <img class="thumb" src="assets/work/buildwithjesus-feature.jpg" alt="Build with Jesus homepage" loading="lazy" width="1600" height="800">
         <span class="freebadge">Free</span>
         <div class="kind">Agent edition</div>
         <h3>Build with Jesus Agent</h3>
         <p>A Bible-centred agent for young people and churches: morning prayer, night passages, the Eight Essentials, and a build coach that takes a project from idea to give-away.</p>
         <a href="https://buildwithjesus.com" target="_blank" rel="noopener">buildwithjesus.com</a>
       </div>
+      
+      
       <div class="wcard">
         <img class="thumb" src="assets/work/ai-orchestrator.jpg" alt="AI Orchestrator homepage" loading="lazy" width="640" height="400">
         <span class="freebadge">Free</span>
